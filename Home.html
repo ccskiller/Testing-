@@ -1,0 +1,493 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Order Food App with Working + and - Buttons</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: "Montserrat", sans-serif;
+    }
+    button i {
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-2">
+        <img
+          alt="Logo of a burger icon in orange and white"
+          class="w-10 h-10"
+          height="40"
+          src="https://storage.googleapis.com/a1aa/image/8cf1afa7-f587-4138-8bcf-37fed8ea80c2.jpg"
+          width="40"
+        />
+        <h1 class="text-2xl font-bold text-orange-600">FoodieExpress</h1>
+      </div>
+      <nav class="hidden md:flex space-x-8 text-gray-700 font-semibold">
+        <a class="hover:text-orange-600 transition" href="Home.html">Home</a>
+        <a class="hover:text-orange-600 transition" href="Menu.html">Menu</a>
+        <a class="hover:text-orange-600 transition" href="#">Orders</a>
+        <a class="hover:text-orange-600 transition" href="#">Contact</a>
+      </nav>
+      <button
+        aria-label="Open menu"
+        class="md:hidden text-gray-700 focus:outline-none"
+        id="mobile-menu-button"
+      >
+        <i class="fas fa-bars fa-lg"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <nav class="hidden md:hidden bg-white border-t border-gray-200" id="mobile-menu">
+      <a
+        class="block px-4 py-3 border-b border-gray-200 text-gray-700 font-semibold hover:bg-orange-50"
+        href="#"
+        >Home</a
+      >
+      <a
+        class="block px-4 py-3 border-b border-gray-200 text-gray-700 font-semibold hover:bg-orange-50"
+        href="#"
+        >Menu</a
+      >
+      <a
+        class="block px-4 py-3 border-b border-gray-200 text-gray-700 font-semibold hover:bg-orange-50"
+        href="#"
+        >Orders</a
+      >
+      <a
+        class="block px-4 py-3 text-gray-700 font-semibold hover:bg-orange-50"
+        href="#"
+        >Contact</a
+      >
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="bg-orange-50 py-12">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center md:space-x-12">
+      <div class="md:w-1/2 text-center md:text-left">
+        <h2 class="text-4xl font-extrabold text-orange-600 mb-4">
+          Delicious Food Delivered Fast
+        </h2>
+        <p class="text-gray-700 mb-6">
+          Choose from a wide variety of meals and get them delivered to your doorstep in no time.
+        </p>
+        <a
+          class="inline-block bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-orange-700 transition"
+          href="#menu"
+          >Order Now</a
+        >
+      </div>
+      <div class="md:w-1/2 mt-8 md:mt-0">
+        <img
+          alt="A delicious food platter with a burger, fries, and a cold drink on a wooden table"
+          class="rounded-lg shadow-lg mx-auto"
+          height="400"
+          src="https://storage.googleapis.com/a1aa/image/12adf4f3-ba6a-4f43-6505-e05b2201919f.jpg"
+          width="600"
+        />
+      </div>
+    </div>
+  </section>
+  <!-- Menu Section -->
+  <section class="container mx-auto px-4 py-12" id="menu">
+    <h3 class="text-3xl font-bold text-center text-orange-600 mb-10">Our Menu</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8" id="menu-items">
+      <!-- Food Item 1 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-id="1" data-name="Classic Cheeseburger" data-price="8.99">
+        <img
+          alt="Classic cheeseburger with lettuce, tomato, and melted cheese on a sesame bun"
+          class="w-full h-48 object-cover"
+          height="300"
+          src="https://storage.googleapis.com/a1aa/image/53ed0888-9d40-4261-b11f-e05007ed0c6d.jpg"
+          width="400"
+        />
+        <div class="p-4 flex flex-col flex-grow">
+          <h4 class="text-xl font-semibold mb-2">Classic Cheeseburger</h4>
+          <p class="text-gray-600 flex-grow">
+            Juicy beef patty with fresh lettuce, tomato, and melted cheddar cheese.
+          </p>
+          <div class="mt-4 flex items-center justify-between space-x-2">
+            <span class="text-orange-600 font-bold text-lg">$8.99</span>
+            <div class="flex items-center space-x-1" style="">
+              <button aria-label="Decrease quantity" class="decrease-qty bg-orange-600 text-white px-3 py-1 rounded-l-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-minus"></i>
+              </button>
+              <input aria-label="Quantity" class="qty-input w-14 text-center border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-600 rounded-none" min="0" type="number" value="0" inputmode="numeric" pattern="[0-9]*" />
+              <button aria-label="Increase quantity" class="increase-qty bg-orange-600 text-white px-3 py-1 rounded-r-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Food Item 2 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-id="2" data-name="Margherita Pizza" data-price="12.5">
+        <img
+          alt="Margherita pizza with fresh basil leaves and melted mozzarella cheese on a thin crust"
+          class="w-full h-48 object-cover"
+          height="300"
+          src="https://storage.googleapis.com/a1aa/image/e903cd98-c753-4d67-7219-034193f28650.jpg"
+          width="400"
+        />
+        <div class="p-4 flex flex-col flex-grow">
+          <h4 class="text-xl font-semibold mb-2">Margherita Pizza</h4>
+          <p class="text-gray-600 flex-grow">
+            Classic Italian pizza topped with fresh basil, tomato sauce, and mozzarella.
+          </p>
+          <div class="mt-4 flex items-center justify-between space-x-2">
+            <span class="text-orange-600 font-bold text-lg">$12.50</span>
+            <div class="flex items-center space-x-1" style="">
+              <button aria-label="Decrease quantity" class="decrease-qty bg-orange-600 text-white px-3 py-1 rounded-l-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-minus"></i>
+              </button>
+              <input aria-label="Quantity" class="qty-input w-14 text-center border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-600 rounded-none" min="0" type="number" value="0" inputmode="numeric" pattern="[0-9]*" />
+              <button aria-label="Increase quantity" class="increase-qty bg-orange-600 text-white px-3 py-1 rounded-r-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Food Item 3 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-id="3" data-name="Caesar Salad" data-price="7.25">
+        <img
+          alt="Caesar salad with romaine lettuce, parmesan cheese, and crunchy croutons in a white bowl"
+          class="w-full h-48 object-cover"
+          height="300"
+          src="https://storage.googleapis.com/a1aa/image/0a1b6562-28eb-410c-8a42-d5349f95c466.jpg"
+          width="400"
+        />
+        <div class="p-4 flex flex-col flex-grow">
+          <h4 class="text-xl font-semibold mb-2">Caesar Salad</h4>
+          <p class="text-gray-600 flex-grow">
+            Crisp romaine lettuce tossed with creamy Caesar dressing, parmesan, and croutons.
+          </p>
+          <div class="mt-4 flex items-center justify-between space-x-2">
+            <span class="text-orange-600 font-bold text-lg">$7.25</span>
+            <div class="flex items-center space-x-1" style="">
+              <button aria-label="Decrease quantity" class="decrease-qty bg-orange-600 text-white px-3 py-1 rounded-l-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-minus"></i>
+              </button>
+              <input aria-label="Quantity" class="qty-input w-14 text-center border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-600 rounded-none" min="0" type="number" value="0" inputmode="numeric" pattern="[0-9]*" />
+              <button aria-label="Increase quantity" class="increase-qty bg-orange-600 text-white px-3 py-1 rounded-r-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Food Item 4 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-id="4" data-name="Spaghetti Bolognese" data-price="11.0">
+        <img
+          alt="Spaghetti Bolognese with rich tomato meat sauce and parmesan cheese on top"
+          class="w-full h-48 object-cover"
+          height="300"
+          src="https://storage.googleapis.com/a1aa/image/8799c514-7af5-4869-95c0-926ac9e146af.jpg"
+          width="400"
+        />
+        <div class="p-4 flex flex-col flex-grow">
+          <h4 class="text-xl font-semibold mb-2">Spaghetti Bolognese</h4>
+          <p class="text-gray-600 flex-grow">
+            Traditional Italian pasta with a hearty meat and tomato sauce.
+          </p>
+          <div class="mt-4 flex items-center justify-between space-x-2">
+            <span class="text-orange-600 font-bold text-lg">$11.00</span>
+            <div class="flex items-center space-x-1" style="">
+              <button aria-label="Decrease quantity" class="decrease-qty bg-orange-600 text-white px-3 py-1 rounded-l-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-minus"></i>
+              </button>
+              <input aria-label="Quantity" class="qty-input w-14 text-center border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-600 rounded-none" min="0" type="number" value="0" inputmode="numeric" pattern="[0-9]*" />
+              <button aria-label="Increase quantity" class="increase-qty bg-orange-600 text-white px-3 py-1 rounded-r-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Food Item 5 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-id="5" data-name="Grilled Chicken Breast" data-price="10.75">
+        <img
+          alt="Grilled chicken breast served with steamed mixed vegetables on a white plate"
+          class="w-full h-48 object-cover"
+          height="300"
+          src="https://storage.googleapis.com/a1aa/image/c19acfdc-89ab-4af9-b906-371e332c1169.jpg"
+          width="400"
+        />
+        <div class="p-4 flex flex-col flex-grow">
+          <h4 class="text-xl font-semibold mb-2">Grilled Chicken Breast</h4>
+          <p class="text-gray-600 flex-grow">
+            Tender grilled chicken served with a side of fresh steamed vegetables.
+          </p>
+          <div class="mt-4 flex items-center justify-between space-x-2">
+            <span class="text-orange-600 font-bold text-lg">$10.75</span>
+            <div class="flex items-center space-x-1" style="">
+              <button aria-label="Decrease quantity" class="decrease-qty bg-orange-600 text-white px-3 py-1 rounded-l-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-minus"></i>
+              </button>
+              <input aria-label="Quantity" class="qty-input w-14 text-center border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-600 rounded-none" min="0" type="number" value="0" inputmode="numeric" pattern="[0-9]*" />
+              <button aria-label="Increase quantity" class="increase-qty bg-orange-600 text-white px-3 py-1 rounded-r-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Food Item 6 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-id="6" data-name="Fish and Chips" data-price="9.5">
+        <img
+          alt="Golden fried fish and crispy chips served with tartar sauce on a rustic wooden table"
+          class="w-full h-48 object-cover"
+          height="300"
+          src="https://storage.googleapis.com/a1aa/image/aacb4198-b3d4-4c29-d314-2f480567781f.jpg"
+          width="400"
+        />
+        <div class="p-4 flex flex-col flex-grow">
+          <h4 class="text-xl font-semibold mb-2">Fish and Chips</h4>
+          <p class="text-gray-600 flex-grow">
+            Crispy battered fish served with golden fries and tangy tartar sauce.
+          </p>
+          <div class="mt-4 flex items-center justify-between space-x-2">
+            <span class="text-orange-600 font-bold text-lg">$9.50</span>
+            <div class="flex items-center space-x-1" style="">
+              <button aria-label="Decrease quantity" class="decrease-qty bg-orange-600 text-white px-3 py-1 rounded-l-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-minus"></i>
+              </button>
+              <input aria-label="Quantity" class="qty-input w-14 text-center border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-600 rounded-none" min="0" type="number" value="0" inputmode="numeric" pattern="[0-9]*" />
+              <button aria-label="Increase quantity" class="increase-qty bg-orange-600 text-white px-3 py-1 rounded-r-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Food Item 7 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-id="7" data-name="Vegan Buddha Bowl" data-price="9.99">
+        <img
+          alt="Colorful vegan buddha bowl with quinoa, avocado, chickpeas, and fresh vegetables in a ceramic bowl"
+          class="w-full h-48 object-cover"
+          height="300"
+          src="https://storage.googleapis.com/a1aa/image/4cb552ee-8c68-4dd5-3c86-ce77b9fe27f8.jpg"
+          width="400"
+        />
+        <div class="p-4 flex flex-col flex-grow">
+          <h4 class="text-xl font-semibold mb-2">Vegan Buddha Bowl</h4>
+          <p class="text-gray-600 flex-grow">
+            Nutritious bowl with quinoa, avocado, chickpeas, and fresh veggies.
+          </p>
+          <div class="mt-4 flex items-center justify-between space-x-2">
+            <span class="text-orange-600 font-bold text-lg">$9.99</span>
+            <div class="flex items-center space-x-1" style="">
+              <button aria-label="Decrease quantity" class="decrease-qty bg-orange-600 text-white px-3 py-1 rounded-l-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-minus"></i>
+              </button>
+              <input aria-label="Quantity" class="qty-input w-14 text-center border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-600 rounded-none" min="0" type="number" value="0" inputmode="numeric" pattern="[0-9]*" />
+              <button aria-label="Increase quantity" class="increase-qty bg-orange-600 text-white px-3 py-1 rounded-r-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Food Item 8 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col" data-id="8" data-name="Chocolate Fudge Brownie" data-price="5.5">
+        <img
+          alt="Chocolate fudge brownie served warm with a scoop of vanilla ice cream and chocolate drizzle"
+          class="w-full h-48 object-cover"
+          height="300"
+          src="https://storage.googleapis.com/a1aa/image/6899be0b-5641-4ac4-ded7-a603dfded5cc.jpg"
+          width="400"
+        />
+        <div class="p-4 flex flex-col flex-grow">
+          <h4 class="text-xl font-semibold mb-2">Chocolate Fudge Brownie</h4>
+          <p class="text-gray-600 flex-grow">
+            Rich and gooey chocolate brownie served with creamy vanilla ice cream.
+          </p>
+          <div class="mt-4 flex items-center justify-between space-x-2">
+            <span class="text-orange-600 font-bold text-lg">$5.50</span>
+            <div class="flex items-center space-x-1" style="">
+              <button aria-label="Decrease quantity" class="decrease-qty bg-orange-600 text-white px-3 py-1 rounded-l-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-minus"></i>
+              </button>
+              <input aria-label="Quantity" class="qty-input w-14 text-center border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-600 rounded-none" min="0" type="number" value="0" inputmode="numeric" pattern="[0-9]*" />
+              <button aria-label="Increase quantity" class="increase-qty bg-orange-600 text-white px-3 py-1 rounded-r-lg hover:bg-orange-700 transition" type="button">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Cart Section -->
+  <section class="bg-white shadow-inner py-8 px-4 fixed bottom-0 left-0 right-0 md:relative md:bottom-auto md:left-auto md:right-auto md:shadow-none">
+    <div class="container mx-auto flex items-center justify-between max-w-5xl">
+      <div class="flex items-center space-x-4">
+        <i class="fas fa-shopping-cart text-orange-600 text-2xl"></i>
+        <span class="font-semibold text-gray-700 text-lg" id="cart-count">0 items</span>
+      </div>
+      <div class="text-gray-700 font-semibold text-lg" id="cart-total">$0.00</div>
+      <button
+        class="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-orange-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+        disabled
+        id="checkout-button"
+      >
+        Checkout
+      </button>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-orange-600 text-white py-6 mt-auto">
+    <div class="container mx-auto px-4 text-center text-sm">
+      © 2024 FoodieExpress. All rights reserved.
+    </div>
+  </footer>
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    mobileMenuButton.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Cart functionality with quantity controls
+    const menuItemsContainer = document.getElementById("menu-items");
+    const cartCount = document.getElementById("cart-count");
+    const cartTotal = document.getElementById("cart-total");
+    const checkoutButton = document.getElementById("checkout-button");
+
+    // Cart object to hold itemId: quantity
+    const cart = {};
+
+    function updateCartDisplay() {
+      let totalItems = 0;
+      let totalPrice = 0;
+
+      for (const id in cart) {
+        if (cart[id] > 0) {
+          totalItems += cart[id];
+          const itemCard = menuItemsContainer.querySelector(`[data-id="${id}"]`);
+          if (itemCard) {
+            const price = parseFloat(itemCard.getAttribute("data-price"));
+            totalPrice += price * cart[id];
+          }
+        }
+      }
+
+      cartCount.textContent = `${totalItems} item${totalItems !== 1 ? "s" : ""}`;
+      cartTotal.textContent = `$${totalPrice.toFixed(2)}`;
+      checkoutButton.disabled = totalItems === 0;
+    }
+
+    // Initialize cart quantities and add event listeners
+    menuItemsContainer.querySelectorAll(".qty-input").forEach((input) => {
+      const parentCard = input.closest("[data-id]");
+      const id = parentCard.getAttribute("data-id");
+      cart[id] = 0;
+
+      // Sync input changes with cart
+      input.addEventListener("input", (e) => {
+        let val = parseInt(e.target.value);
+        if (isNaN(val) || val < 0) {
+          val = 0;
+        }
+        e.target.value = val;
+        cart[id] = val;
+        updateCartDisplay();
+      });
+
+      // Prevent manual input of negative or non-numeric values on blur
+      input.addEventListener("blur", (e) => {
+        let val = parseInt(e.target.value);
+        if (isNaN(val) || val < 0) {
+          val = 0;
+          e.target.value = 0;
+          cart[id] = 0;
+          updateCartDisplay();
+        }
+      });
+    });
+
+    // Increase quantity buttons
+    menuItemsContainer.querySelectorAll(".increase-qty").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const parentCard = btn.closest("[data-id]");
+        const id = parentCard.getAttribute("data-id");
+        const input = parentCard.querySelector(".qty-input");
+        let currentVal = parseInt(input.value) || 0;
+        currentVal++;
+        input.value = currentVal;
+        cart[id] = currentVal;
+        updateCartDisplay();
+      });
+    });
+
+    // Decrease quantity buttons
+    menuItemsContainer.querySelectorAll(".decrease-qty").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const parentCard = btn.closest("[data-id]");
+        const id = parentCard.getAttribute("data-id");
+        const input = parentCard.querySelector(".qty-input");
+        let currentVal = parseInt(input.value) || 0;
+        if (currentVal > 0) {
+          currentVal--;
+          input.value = currentVal;
+          cart[id] = currentVal;
+          updateCartDisplay();
+        }
+      });
+    });
+
+    // Checkout button click
+    checkoutButton.addEventListener("click", () => {
+      let orderSummary = "Your order:\n";
+      let totalItems = 0;
+      let totalPrice = 0;
+
+      for (const id in cart) {
+        if (cart[id] > 0) {
+          const itemCard = menuItemsContainer.querySelector(`[data-id="${id}"]`);
+          const name = itemCard.getAttribute("data-name");
+          const price = parseFloat(itemCard.getAttribute("data-price"));
+          const qty = cart[id];
+          const itemTotal = price * qty;
+          orderSummary += `${name} x${qty} = $${itemTotal.toFixed(2)}\n`;
+          totalItems += qty;
+          totalPrice += itemTotal;
+        }
+      }
+      orderSummary += `\nTotal items: ${totalItems}\nTotal price: $${totalPrice.toFixed(
+        2
+      )}\n\nThank you for your order!`;
+
+      alert(orderSummary);
+
+      // Reset cart and inputs
+      for (const id in cart) {
+        cart[id] = 0;
+        const itemCard = menuItemsContainer.querySelector(`[data-id="${id}"]`);
+        if (itemCard) {
+          const input = itemCard.querySelector(".qty-input");
+          input.value = 0;
+        }
+      }
+      updateCartDisplay();
+    });
+
+    // Initialize display on page load
+    updateCartDisplay();
+  </script>
+</body>
+</html>
