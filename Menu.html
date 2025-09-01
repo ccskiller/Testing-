@@ -31,11 +31,10 @@
             alt="Logo of a burger icon in orange and white"
             class="w-10 h-10"
             height="40"
-            src="https://storage.googleapis.com/a1aa/image/8cf1afa7-f587-4138-8bcf-37fed8ea80c2.jpg"
+            src="logo.png"
             width="40"
           />
-          <h1 class="text-2xl font-bold text-orange-600">WCNM​
-</h1>
+          <h1 class="text-2xl font-bold text-orange-600">WCNM​</h1>
         </a>
       </div>
       <nav class="hidden md:flex space-x-8 text-gray-700 font-semibold">
@@ -78,77 +77,61 @@
   </header>
 
   <main class="container mx-auto px-4 py-12 flex flex-col md:flex-row md:space-x-12">
-    <!-- Menu List -->
+    <!-- Vendor List -->
     <section class="md:w-1/3">
-      <h2 class="text-3xl font-bold text-orange-600 mb-8">Menu</h2>
-      <ul id="menu-list" class="space-y-4">
+      <h2 class="text-3xl font-bold text-orange-600 mb-8">Vendors</h2>
+      <ul id="vendor-list" class="space-y-4">
         <li>
-          <button data-id="1" class="menu-item w-full text-left px-4 py-3 bg-white rounded-lg shadow hover:bg-orange-50 transition font-semibold text-gray-800">
-            Classic Cheeseburger
+          <button data-vendor="Burger Haven" class="vendor-item w-full text-left px-4 py-3 bg-white rounded-lg shadow hover:bg-orange-50 transition font-semibold text-gray-800">
+            Burger Haven
           </button>
         </li>
         <li>
-          <button data-id="2" class="menu-item w-full text-left px-4 py-3 bg-white rounded-lg shadow hover:bg-orange-50 transition font-semibold text-gray-800">
-            Margherita Pizza
+          <button data-vendor="Italian Kitchen" class="vendor-item w-full text-left px-4 py-3 bg-white rounded-lg shadow hover:bg-orange-50 transition font-semibold text-gray-800">
+            Italian Kitchen
           </button>
         </li>
         <li>
-          <button data-id="3" class="menu-item w-full text-left px-4 py-3 bg-white rounded-lg shadow hover:bg-orange-50 transition font-semibold text-gray-800">
-            Caesar Salad
+          <button data-vendor="Healthy Eats" class="vendor-item w-full text-left px-4 py-3 bg-white rounded-lg shadow hover:bg-orange-50 transition font-semibold text-gray-800">
+            Healthy Eats
           </button>
         </li>
         <li>
-          <button data-id="4" class="menu-item w-full text-left px-4 py-3 bg-white rounded-lg shadow hover:bg-orange-50 transition font-semibold text-gray-800">
-            Spaghetti Bolognese
-          </button>
-        </li>
-        <li>
-          <button data-id="5" class="menu-item w-full text-left px-4 py-3 bg-white rounded-lg shadow hover:bg-orange-50 transition font-semibold text-gray-800">
-            Grilled Chicken Breast
-          </button>
-        </li>
-        <li>
-          <button data-id="6" class="menu-item w-full text-left px-4 py-3 bg-white rounded-lg shadow hover:bg-orange-50 transition font-semibold text-gray-800">
-            Fish and Chips
-          </button>
-        </li>
-        <li>
-          <button data-id="7" class="menu-item w-full text-left px-4 py-3 bg-white rounded-lg shadow hover:bg-orange-50 transition font-semibold text-gray-800">
-            Vegan Buddha Bowl
-          </button>
-        </li>
-        <li>
-          <button data-id="8" class="menu-item w-full text-left px-4 py-3 bg-white rounded-lg shadow hover:bg-orange-50 transition font-semibold text-gray-800">
-            Chocolate Fudge Brownie
+          <button data-vendor="Sweet Treats" class="vendor-item w-full text-left px-4 py-3 bg-white rounded-lg shadow hover:bg-orange-50 transition font-semibold text-gray-800">
+            Sweet Treats
           </button>
         </li>
       </ul>
     </section>
 
-    <!-- Ingredient & Order Details -->
+    <!-- Menu Items & Order Details -->
     <section class="md:w-2/3 bg-white rounded-lg shadow p-6 min-h-[400px] mt-8 md:mt-0 flex flex-col">
-      <h2 class="text-2xl font-bold text-orange-600 mb-4" id="item-title">Select a menu item to see ingredients and order options</h2>
-      <div id="ingredients-content" class="text-gray-700 text-lg mb-6 flex-grow overflow-auto"></div>
+      <h2 class="text-2xl font-bold text-orange-600 mb-4" id="section-title">Select a vendor to see their menu</h2>
 
-      <div id="order-section" class="hidden flex flex-col space-y-4">
-        <h3 class="text-xl font-semibold text-gray-800">Add to Cart</h3>
-        <div class="flex flex-col md:flex-row md:space-x-6">
-          <div class="flex-1">
-            <label for="variant-select" class="block font-semibold mb-1">Choose Variant</label>
-            <select id="variant-select" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-600">
-              <!-- Options added dynamically -->
-            </select>
-          </div>
-          <div class="flex items-center mt-4 md:mt-0 space-x-2">
-            <button id="decrease-qty" aria-label="Decrease quantity" class="bg-orange-600 text-white px-4 py-2 rounded-l-lg hover:bg-orange-700 transition" type="button">
-              <i class="fas fa-minus"></i>
-            </button>
-            <input id="qty-input" aria-label="Quantity" class="w-16 text-center border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-600 rounded-none" min="1" type="number" value="1" inputmode="numeric" pattern="[0-9]*" />
-            <button id="increase-qty" aria-label="Increase quantity" class="bg-orange-600 text-white px-4 py-2 rounded-r-lg hover:bg-orange-700 transition" type="button">
-              <i class="fas fa-plus"></i>
-            </button>
-          </div>
-          <button id="add-to-cart-btn" class="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md hover:bg-orange-700 transition self-start" type="button">
+      <div id="menu-list" class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6 overflow-auto max-h-[300px]"></div>
+
+      <div id="item-details" class="hidden flex flex-col space-y-4">
+        <h3 class="text-xl font-semibold text-gray-800" id="item-title"></h3>
+        <img id="item-image" alt="" class="w-full max-w-md rounded-lg shadow-lg mx-auto" />
+        <div>
+          <h4 class="font-semibold mb-2">Ingredients:</h4>
+          <ul id="ingredients-content" class="list-disc list-inside text-gray-700"></ul>
+        </div>
+
+        <div>
+          <label for="variant-select" class="block font-semibold mb-1">Choose Variant</label>
+          <select id="variant-select" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-600"></select>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <button id="decrease-qty" aria-label="Decrease quantity" class="bg-orange-600 text-white px-4 py-2 rounded-l-lg hover:bg-orange-700 transition" type="button">
+            <i class="fas fa-minus"></i>
+          </button>
+          <input id="qty-input" aria-label="Quantity" class="w-16 text-center border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-600 rounded-none" min="1" type="number" value="1" inputmode="numeric" pattern="[0-9]*" />
+          <button id="increase-qty" aria-label="Increase quantity" class="bg-orange-600 text-white px-4 py-2 rounded-r-lg hover:bg-orange-700 transition" type="button">
+            <i class="fas fa-plus"></i>
+          </button>
+          <button id="add-to-cart-btn" class="bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold shadow-md hover:bg-orange-700 transition ml-auto" type="button">
             Add to Cart
           </button>
         </div>
@@ -186,175 +169,226 @@
       mobileMenu.classList.toggle("hidden");
     });
 
-    // Ingredient and menu data with variants and prices
-    const menuData = {
-      1: {
-        name: "Classic Cheeseburger",
-        image: "https://storage.googleapis.com/a1aa/image/53ed0888-9d40-4261-b11f-e05007ed0c6d.jpg",
-        ingredients: [
-          "Juicy beef patty",
-          "Fresh lettuce",
-          "Tomato slices",
-          "Melted cheddar cheese",
-          "Sesame seed bun",
-          "Pickles",
-          "Ketchup and mustard"
-        ],
-        variants: [
-          { name: "Beef", price: 8.99 },
-          { name: "Chicken", price: 8.49 },
-          { name: "Veggie", price: 7.99 }
-        ]
-      },
-      2: {
-        name: "Margherita Pizza",
-        image: "https://storage.googleapis.com/a1aa/image/e903cd98-c753-4d67-7219-034193f28650.jpg",
-        ingredients: [
-          "Thin pizza crust",
-          "Tomato sauce",
-          "Fresh basil leaves",
-          "Mozzarella cheese",
-          "Olive oil drizzle"
-        ],
-        variants: [
-          { name: "Regular", price: 12.5 },
-          { name: "Large", price: 15.99 }
-        ]
-      },
-      3: {
-        name: "Caesar Salad",
-        image: "https://storage.googleapis.com/a1aa/image/0a1b6562-28eb-410c-8a42-d5349f95c466.jpg",
-        ingredients: [
-          "Romaine lettuce",
-          "Caesar dressing",
-          "Parmesan cheese",
-          "Crunchy croutons",
-          "Lemon wedge"
-        ],
-        variants: [
-          { name: "Regular", price: 7.25 },
-          { name: "Large", price: 9.5 }
-        ]
-      },
-      4: {
-        name: "Spaghetti Bolognese",
-        image: "https://storage.googleapis.com/a1aa/image/8799c514-7af5-4869-95c0-926ac9e146af.jpg",
-        ingredients: [
-          "Spaghetti pasta",
-          "Rich tomato meat sauce",
-          "Ground beef",
-          "Parmesan cheese",
-          "Fresh parsley"
-        ],
-        variants: [
-          { name: "Beef", price: 11.0 },
-          { name: "Chicken", price: 10.5 }
-        ]
-      },
-      5: {
-        name: "Grilled Chicken Breast",
-        image: "https://storage.googleapis.com/a1aa/image/c19acfdc-89ab-4af9-b906-371e332c1169.jpg",
-        ingredients: [
-          "Grilled chicken breast",
-          "Steamed mixed vegetables",
-          "Herb seasoning",
-          "Lemon wedge"
-        ],
-        variants: [
-          { name: "Standard", price: 10.75 }
-        ]
-      },
-      6: {
-        name: "Fish and Chips",
-        image: "https://storage.googleapis.com/a1aa/image/aacb4198-b3d4-4c29-d314-2f480567781f.jpg",
-        ingredients: [
-          "Battered fried fish",
-          "Golden crispy fries",
-          "Tartar sauce",
-          "Lemon wedge"
-        ],
-        variants: [
-          { name: "Standard", price: 9.5 }
-        ]
-      },
-      7: {
-        name: "Vegan Buddha Bowl",
-        image: "https://storage.googleapis.com/a1aa/image/4cb552ee-8c68-4dd5-3c86-ce77b9fe27f8.jpg",
-        ingredients: [
-          "Quinoa",
-          "Avocado",
-          "Chickpeas",
-          "Fresh vegetables",
-          "Tahini dressing"
-        ],
-        variants: [
-          { name: "Standard", price: 9.99 }
-        ]
-      },
-      8: {
-        name: "Chocolate Fudge Brownie",
-        image: "https://storage.googleapis.com/a1aa/image/6899be0b-5641-4ac4-ded7-a603dfded5cc.jpg",
-        ingredients: [
-          "Rich chocolate brownie",
-          "Vanilla ice cream",
-          "Chocolate drizzle",
-          "Whipped cream"
-        ],
-        variants: [
-          { name: "Single", price: 5.5 },
-          { name: "Double", price: 9.5 }
-        ]
-      }
+    // Data: Vendors with their menu items
+    const vendorsData = {
+      "Burger Haven": [
+        {
+          id: "1",
+          name: "Classic Cheeseburger",
+          image: "https://storage.googleapis.com/a1aa/image/53ed0888-9d40-4261-b11f-e05007ed0c6d.jpg",
+          ingredients: [
+            "Juicy beef patty",
+            "Fresh lettuce",
+            "Tomato slices",
+            "Melted cheddar cheese",
+            "Sesame seed bun",
+            "Pickles",
+            "Ketchup and mustard"
+          ],
+          variants: [
+            { name: "Beef", price: 8.99 },
+            { name: "Chicken", price: 8.49 },
+            { name: "Veggie", price: 7.99 }
+          ]
+        },
+        {
+          id: "6",
+          name: "Fish and Chips",
+          image: "https://storage.googleapis.com/a1aa/image/aacb4198-b3d4-4c29-d314-2f480567781f.jpg",
+          ingredients: [
+            "Battered fried fish",
+            "Golden crispy fries",
+            "Tartar sauce",
+            "Lemon wedge"
+          ],
+          variants: [
+            { name: "Standard", price: 9.5 }
+          ]
+        }
+      ],
+      "Italian Kitchen": [
+        {
+          id: "2",
+          name: "Margherita Pizza",
+          image: "https://storage.googleapis.com/a1aa/image/e903cd98-c753-4d67-7219-034193f28650.jpg",
+          ingredients: [
+            "Thin pizza crust",
+            "Tomato sauce",
+            "Fresh basil leaves",
+            "Mozzarella cheese",
+            "Olive oil drizzle"
+          ],
+          variants: [
+            { name: "Regular", price: 12.5 },
+            { name: "Large", price: 15.99 }
+          ]
+        },
+        {
+          id: "4",
+          name: "Spaghetti Bolognese",
+          image: "https://storage.googleapis.com/a1aa/image/8799c514-7af5-4869-95c0-926ac9e146af.jpg",
+          ingredients: [
+            "Spaghetti pasta",
+            "Rich tomato meat sauce",
+            "Ground beef",
+            "Parmesan cheese",
+            "Fresh parsley"
+          ],
+          variants: [
+            { name: "Beef", price: 11.0 },
+            { name: "Chicken", price: 10.5 }
+          ]
+        }
+      ],
+      "Healthy Eats": [
+        {
+          id: "3",
+          name: "Caesar Salad",
+          image: "https://storage.googleapis.com/a1aa/image/0a1b6562-28eb-410c-8a42-d5349f95c466.jpg",
+          ingredients: [
+            "Romaine lettuce",
+            "Caesar dressing",
+            "Parmesan cheese",
+            "Crunchy croutons",
+            "Lemon wedge"
+          ],
+          variants: [
+            { name: "Regular", price: 7.25 },
+            { name: "Large", price: 9.5 }
+          ]
+        },
+        {
+          id: "7",
+          name: "Vegan Buddha Bowl",
+          image: "https://storage.googleapis.com/a1aa/image/4cb552ee-8c68-4dd5-3c86-ce77b9fe27f8.jpg",
+          ingredients: [
+            "Quinoa",
+            "Avocado",
+            "Chickpeas",
+            "Fresh vegetables",
+            "Tahini dressing"
+          ],
+          variants: [
+            { name: "Standard", price: 9.99 }
+          ]
+        },
+        {
+          id: "5",
+          name: "Grilled Chicken Breast",
+          image: "https://storage.googleapis.com/a1aa/image/c19acfdc-89ab-4af9-b906-371e332c1169.jpg",
+          ingredients: [
+            "Grilled chicken breast",
+            "Steamed mixed vegetables",
+            "Herb seasoning",
+            "Lemon wedge"
+          ],
+          variants: [
+            { name: "Standard", price: 10.75 }
+          ]
+        }
+      ],
+      "Sweet Treats": [
+        {
+          id: "8",
+          name: "Chocolate Fudge Brownie",
+          image: "https://storage.googleapis.com/a1aa/image/6899be0b-5641-4ac4-ded7-a603dfded5cc.jpg",
+          ingredients: [
+            "Rich chocolate brownie",
+            "Vanilla ice cream",
+            "Chocolate drizzle",
+            "Whipped cream"
+          ],
+          variants: [
+            { name: "Single", price: 5.5 },
+            { name: "Double", price: 9.5 }
+          ]
+        }
+      ]
     };
 
-    // Cart structure: { uniqueKey: { id, variantName, price, qty } }
-    // uniqueKey = id + '|' + variantName
+    // Cart structure: { uniqueKey: { id, name, variantName, price, qty } }
     const cart = {};
 
     // Elements
+    const vendorList = document.getElementById("vendor-list");
     const menuList = document.getElementById("menu-list");
-    const ingredientsContent = document.getElementById("ingredients-content");
+    const sectionTitle = document.getElementById("section-title");
+    const itemDetails = document.getElementById("item-details");
     const itemTitle = document.getElementById("item-title");
+    const itemImage = document.getElementById("item-image");
+    const ingredientsContent = document.getElementById("ingredients-content");
     const variantSelect = document.getElementById("variant-select");
     const qtyInput = document.getElementById("qty-input");
     const decreaseQtyBtn = document.getElementById("decrease-qty");
     const increaseQtyBtn = document.getElementById("increase-qty");
     const addToCartBtn = document.getElementById("add-to-cart-btn");
-    const orderSection = document.getElementById("order-section");
     const addCartMessage = document.getElementById("add-cart-message");
     const cartList = document.getElementById("cart-list");
     const cartTotalPrice = document.getElementById("cart-total-price");
     const checkoutBtn = document.getElementById("checkout-btn");
 
-    let currentItemId = null;
+    let currentVendor = null;
+    let currentItem = null;
 
-    // Show ingredients and variants for selected menu item
+    // Handle vendor selection
+    vendorList.addEventListener("click", (e) => {
+      const btn = e.target.closest("button.vendor-item");
+      if (!btn) return;
+
+      const vendor = btn.getAttribute("data-vendor");
+      if (!vendor || !vendorsData[vendor]) return;
+
+      currentVendor = vendor;
+      currentItem = null;
+      sectionTitle.textContent = `${vendor} Menu`;
+      itemDetails.classList.add("hidden");
+      addCartMessage.textContent = "";
+
+      // Clear and populate menu list
+      menuList.innerHTML = "";
+      vendorsData[vendor].forEach(item => {
+        const itemBtn = document.createElement("button");
+        itemBtn.className = "menu-item w-full text-left px-4 py-3 bg-orange-50 rounded-lg shadow hover:bg-orange-100 transition font-semibold text-gray-800";
+        itemBtn.textContent = item.name;
+        itemBtn.setAttribute("data-id", item.id);
+        menuList.appendChild(itemBtn);
+      });
+
+      // Scroll to menu list on small screens
+      if (window.innerWidth < 768) {
+        menuList.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+
+    // Handle menu item selection
     menuList.addEventListener("click", (e) => {
       const btn = e.target.closest("button.menu-item");
       if (!btn) return;
+      if (!currentVendor) return;
 
       const id = btn.getAttribute("data-id");
-      if (!id || !menuData[id]) return;
+      if (!id) return;
 
-      currentItemId = id;
-      const data = menuData[id];
+      const item = vendorsData[currentVendor].find(i => i.id === id);
+      if (!item) return;
 
-      itemTitle.textContent = data.name;
+      currentItem = item;
 
-      // Build ingredient HTML
-      let html = `<img src="${data.image}" alt="Image of ${data.name}" class="w-full max-w-md rounded-lg mb-6 mx-auto shadow-lg" />`;
-      html += "<h3 class='text-xl font-semibold mb-2'>Ingredients:</h3>";
-      html += "<ul class='list-disc list-inside space-y-1'>";
-      data.ingredients.forEach((ingredient) => {
-        html += `<li>${ingredient}</li>`;
+      itemTitle.textContent = item.name;
+      itemImage.src = item.image;
+      itemImage.alt = `Image of ${item.name}`;
+
+      // Populate ingredients
+      ingredientsContent.innerHTML = "";
+      item.ingredients.forEach(ing => {
+        const li = document.createElement("li");
+        li.textContent = ing;
+        ingredientsContent.appendChild(li);
       });
-      html += "</ul>";
 
-      ingredientsContent.innerHTML = html;
-
-      // Populate variant select
+      // Populate variants
       variantSelect.innerHTML = "";
-      data.variants.forEach((variant, idx) => {
+      item.variants.forEach((variant, idx) => {
         const option = document.createElement("option");
         option.value = variant.name;
         option.textContent = `${variant.name} - $${variant.price.toFixed(2)}`;
@@ -364,11 +398,11 @@
 
       qtyInput.value = 1;
       addCartMessage.textContent = "";
-      orderSection.classList.remove("hidden");
+      itemDetails.classList.remove("hidden");
 
-      // Scroll to order section on small screens
+      // Scroll to item details on small screens
       if (window.innerWidth < 768) {
-        orderSection.scrollIntoView({ behavior: "smooth" });
+        itemDetails.scrollIntoView({ behavior: "smooth" });
       }
     });
 
@@ -392,7 +426,7 @@
 
     // Add to cart button
     addToCartBtn.addEventListener("click", () => {
-      if (!currentItemId) return;
+      if (!currentItem) return;
 
       const variantName = variantSelect.value;
       const qty = parseInt(qtyInput.value);
@@ -401,28 +435,27 @@
         return;
       }
 
-      const itemData = menuData[currentItemId];
-      const variantData = itemData.variants.find(v => v.name === variantName);
+      const variantData = currentItem.variants.find(v => v.name === variantName);
       if (!variantData) {
         alert("Selected variant not found.");
         return;
       }
 
-      const key = currentItemId + "|" + variantName;
+      const key = currentItem.id + "|" + variantName;
 
       if (cart[key]) {
         cart[key].qty += qty;
       } else {
         cart[key] = {
-          id: currentItemId,
-          name: itemData.name,
+          id: currentItem.id,
+          name: currentItem.name,
           variant: variantName,
           price: variantData.price,
           qty: qty
         };
       }
 
-      addCartMessage.textContent = `${qty} x ${itemData.name} (${variantName}) added to cart.`;
+      addCartMessage.textContent = `${qty} x ${currentItem.name} (${variantName}) added to cart.`;
       qtyInput.value = 1;
 
       renderCart();
@@ -526,10 +559,10 @@
       }
       renderCart();
       addCartMessage.textContent = "";
-      itemTitle.textContent = "Select a menu item to see ingredients and order options";
-      ingredientsContent.innerHTML = "";
-      orderSection.classList.add("hidden");
-      currentItemId = null;
+      itemDetails.classList.add("hidden");
+      sectionTitle.textContent = currentVendor ? `${currentVendor} Menu` : "Select a vendor to see their menu";
+      menuList.innerHTML = "";
+      currentItem = null;
     });
 
     // Initialize empty cart display
